@@ -1,0 +1,31 @@
+.or-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.or-divider hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid gray;
+}
+
+.or-divider span {
+    padding: 0 10px;
+    font-weight: bold;
+    color: black;
+}
+
+.ball {
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    border-radius: 50%;
+}
+
+.ballto {
+    width: 10px;
+    height: 10px;
+    background-color: purple;
+    border-radius: 50%;
+}

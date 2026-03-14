@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <section class="mx-150 my-50">
+        <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+            <div class="py-10">
+                <img src="./assets/github-logo.png" alt="" class="mx-24">
+                <h2 class="text-[24px] font-semibold text-center">GitHub Issues Tracker</h2>
+                <p class="text-center text-[#64748B]">Sign in to manage your issues</p>
+            </div>
+            <legend class="fieldset-legend"></legend>
+
+            <label class="label">Username</label>
+            <input id="input-username" type="text" class="input" placeholder="Username" />
+
+            <label class="label">Password</label>
+            <input id="input-password" type="password" class="input" placeholder="Password" />
+
+            <button id="signin-btn" class="btn btn-primary mt-4">Sign In</button>
+            <div class="or-divider">
+                <hr>
+                <span>OR</span>
+                <hr>
+            </div>
+            <h4 class="text-center">Demo Credentials:</h4>
+            <div class="text-center bg-base-300">
+                <p>Username: admin</p>
+                <p>Password: admin123</p>
+            </div>
+
+        </fieldset>
+    </section>
+    <script src="./login.js"></script>
+</body>
+
+</html>
