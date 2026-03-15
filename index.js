@@ -1,4 +1,24 @@
 let issues = [];
+// let openList = [];
+// let closeList = [];
+// let allIssues = document.getElementById('btn-all');
+// let openIssues = document.getElementById('btn-open');
+// let closedIssues = document.getElementById('btn-close');
+// const allCard = document.getElementById('card-container');
+
+
+
+// function calculateCounts() {
+//     allIssues.innerText = allCard.children.length;
+//     openIssues.innerText = openList.length;
+//     closedIssues.innerText = closeList.length;
+// }
+const updateIssueCount = (count) => {
+    const countElement = document.getElementById('issue-count');
+    countElement.innerText = `${count} Issues`;
+}
+
+
 
 function setActiveButton(activeId) {
     const buttons = ['btn-all', 'btn-open', 'btn-close'];
@@ -12,6 +32,7 @@ function setActiveButton(activeId) {
 }
 
 const loadIssues = (id) => {
+
     // manageSpinner(true);
     const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/`;
     return fetch(url)
@@ -21,13 +42,20 @@ const loadIssues = (id) => {
             // const clickBtn = document.getElementById('btn-all');
             // // console.log(clickBtn);
             // clickBtn.classlist.add('active');
-            displayCardIssues(data.data);
+
+
+            // updateIssueCount(openIssues.length);
+            // updateIssueCount(closedIssues.length);
             // manageSpinner(false);
             issues = data.data;
+            displayCardIssues(data.data);
+            updateIssueCount(issues.length);
+
         })
 }
 loadIssues();
 setActiveButton('btn-all');
+
 // const displayLoadIssuues = (issues) => {
 //     const levelContainer = document.getElementById('level-container');
 //     for (const issue of issues) {
@@ -45,19 +73,26 @@ setActiveButton('btn-all');
 document.getElementById('btn-all').addEventListener('click', function () {
 
     displayCardIssues(issues);
+    updateIssueCount(issues.length);
     console.log(issues);
     setActiveButton('btn-all');
 })
+const openIssues = issues.filter(issue => {
+    console.log(issue.status);
+    return issue.status.toLowerCase() === 'open';
+});
 document.getElementById('btn-open').addEventListener('click', function () {
     const openIssues = issues.filter(issue => issue.status === 'open');
     displayCardIssues(openIssues);
+    updateIssueCount(openIssues.length);
     console.log(openIssues);
     setActiveButton('btn-open');
 })
 document.getElementById('btn-close').addEventListener('click', function () {
-    const openIssues = issues.filter(issue => issue.status === 'closed');
-    displayCardIssues(openIssues);
-    console.log(openIssues);
+    const closedIssues = issues.filter(issue => issue.status === 'closed');
+    displayCardIssues(closedIssues);
+    updateIssueCount(closedIssues.length);
+    console.log(closedIssues);
     setActiveButton('btn-close');
 })
 const loadCardDetail = async (id) => {
@@ -65,6 +100,7 @@ const loadCardDetail = async (id) => {
     const res = await fetch(url);
     const detail = await res.json();
     displayCardDetail(detail.data);
+
 
 };
 const displayCardDetail = (issue) => {
@@ -74,7 +110,7 @@ const displayCardDetail = (issue) => {
                     <h2 class='text-2xl font-bold'>Fix broken image uploads${issue.title}</h2>
                     <div class='flex '>
                         <p class=' rounded-full w-[65px] ${issue.status === 'open' ? 'bg-green-500' : 'bg-purple-500'}'>${issue.status === 'open' ? 'Open' : 'Closed'}</p>
-                        <p class='text-gray-500 '>. Opened by  . 22/02/2026 ${issue.created_at}</p>
+                        <p class='text-gray-500 '>. Opened by  . 22/02/2026 </p>
                     </div>
                     <div class="flex gap-2">
                         <div
