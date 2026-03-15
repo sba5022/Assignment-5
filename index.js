@@ -208,7 +208,7 @@ const displayCardIssues = (issues) => {
 
 document.getElementById('btn-search').addEventListener('click', () => {
     const input = document.getElementById('input-search');
-    const searchValue = input.value.trim().toLowerCase();
+    const searchValue = input.value.toLowerCase();
     console.log(searchValue);
     fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
         .then(res => res.json())
