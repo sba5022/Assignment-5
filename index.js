@@ -210,7 +210,7 @@ document.getElementById('btn-search').addEventListener('click', () => {
     const input = document.getElementById('search-input');
     const searchValue = input.value.trim().toLowerCase();
     console.log(searchValue);
-    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`)
+    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
         .then(res => res.json())
         .then(data => {
             const allWords = data.data;
