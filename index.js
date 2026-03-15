@@ -204,3 +204,20 @@ const displayCardIssues = (issues) => {
 
 //     }
 // }
+
+document.getElementById('btn-search').addEventListener('click', () => {
+    const input = document.getElementById('input-search');
+    const searchValue = input.value.trim().toLowerCase();
+    console.log(searchValue);
+    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
+        .then(res => res.json())
+        .then(data => {
+            const allWords = data.data;
+            console.log(allWords);
+            const filteredIssues = allWords.filter(issue => {
+                return issue.title.toLowerCase().includes(searchValue) || issue.description.toLowerCase().includes(searchValue);
+            });
+            displayCardIssues(filteredIssues);
+
+        })
+})
