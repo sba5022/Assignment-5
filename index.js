@@ -118,10 +118,10 @@ const displayCardDetail = (issue) => {
     const detailsContainer = document.getElementById('details-container');
     detailsContainer.innerHTML = `
     <div class='space-y-5'>
-                    <h2 class='text-2xl font-bold'>Fix broken image uploads${issue.title}</h2>
+                    <h2 class='text-2xl font-bold'>${issue.title}</h2>
                     <div class='flex '>
                         <p class=' rounded-full w-[65px] ${issue.status === 'open' ? 'bg-green-500' : 'bg-purple-500'}'>${issue.status === 'open' ? 'Open' : 'Closed'}</p>
-                        <p class='text-gray-500 '>. Opened by  . 22/02/2026 </p>
+                        
                     </div>
                     <div class="flex gap-2">
                         <div
@@ -132,8 +132,7 @@ const displayCardDetail = (issue) => {
                             class="text-center text-[#D97706] bg-[#FFF8DB] w-[112px] h-[24px] rounded-lg border border-[#D97706]">
                             Help Wanted</div>
                     </div>
-                    <p class='text-gray-500'>The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive
-                        behavior.${issue.description}</p>
+                    <p class='text-gray-500'>${issue.description}</p>
                     <div class="bg-base-300 flex gap-20">
                         <div>
                             <p>Assignee:</p>
@@ -176,9 +175,9 @@ const displayCardIssues = (issues) => {
 
             </div>
             <br>
-            <h3  class="font-semibold text-xl">Fix navigation menu on mobile devices${issue.title}</h3>
+            <h3  class="font-semibold text-xl">${issue.title}</h3>
 
-            <p  class="text-gray-500">The navigation menu doesn't collapse properly on mobile devices...${issue.description}</p>
+            <p  class="text-gray-500">${issue.description}</p>
             <br>
             <div class="flex gap-2">
                 <div
@@ -193,8 +192,8 @@ const displayCardIssues = (issues) => {
             <hr class="text-gray-500">
             <br>
             <div>
-                <p class="text-gray-500">#1 john_doe${issue.author}</p>
-                <p class="text-gray-500">1/15/2024${issue.date}</p>
+                <p class="text-gray-500">${issue.author}</p>
+                <p class="text-gray-500">${issue.date}</p>
             </div>
         </div>
 `
